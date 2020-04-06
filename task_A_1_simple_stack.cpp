@@ -63,7 +63,9 @@ void Stack::pop() {
 	if (!empty()) {
 		cout << last->value << endl;
 		if (last->prev_node != nullptr) {
+			Node* tmp = last;
 			last = last->prev_node;
+			delete tmp;
 		}
 		else {
 			last = nullptr;
