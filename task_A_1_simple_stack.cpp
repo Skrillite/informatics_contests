@@ -60,16 +60,21 @@ void Stack::push(int n) {
 }
 
 void Stack::pop() {
-	cout << last->value << endl;
-	if (last->prev_node != nullptr) {
-		last = last->prev_node;
-	} else {
-		last = nullptr;
-	}
+	if (!empty()) {
+		cout << last->value << endl;
+		if (last->prev_node != nullptr) {
+			last = last->prev_node;
+		}
+		else {
+			last = nullptr;
+		}
+	} else cout << "error" << endl;
 }
 
 void Stack::back() {
-	cout << last->value << endl;
+	if (!empty()) {
+		cout << last->value << endl;
+	} else cout << "error" << endl;
 }
 
 void Stack::size() {
