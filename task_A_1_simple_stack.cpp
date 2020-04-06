@@ -68,6 +68,7 @@ void Stack::pop() {
 			delete tmp;
 		}
 		else {
+			delete last;
 			last = nullptr;
 		}
 	} else cout << "error" << endl;
