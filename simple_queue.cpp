@@ -82,7 +82,6 @@ void Queue::clear() {
 		last = last->next_node;
 		delete del;
 	}
-	if (last != nullptr) cout << "fuck you" << endl;
 	first = last;
 	cout << "ok" << endl;
 }
