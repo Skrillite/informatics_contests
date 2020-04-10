@@ -17,7 +17,7 @@ struct Queue {
 	void pop  ();
 	void front();
 	void clear();
-	void	 size ();
+	void size ();
 	bool empty();
 
 	Queue()
@@ -38,9 +38,9 @@ int main() {
 			cin >> arg;
 			queue.push(arg);
 		}
-		else if (command == "pop")	queue.pop();
+		else if (command == "pop")	queue.pop  ();
 		else if (command == "front")queue.front();
-		else if (command == "size")	queue.size();
+		else if (command == "size")	queue.size ();
 		else if (command == "clear")queue.clear();
 	}
 	cout << "bye"; 
