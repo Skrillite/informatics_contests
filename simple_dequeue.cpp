@@ -62,8 +62,7 @@ int main () {
 }
 
 bool Dequeue::empty () {
-	if (last == nullptr && first == nullptr) return true;
-	return false;
+	return (last == nullptr && first == nullptr);
 }
 
 void Dequeue::push_back ( int data ) {

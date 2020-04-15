@@ -48,8 +48,7 @@ int main () {
 }
 
 bool Stack::empty () {
-	if (last == nullptr) return true;
-	return false;
+	return last == nullptr;
 }
 
 void Stack::push ( int n ) {

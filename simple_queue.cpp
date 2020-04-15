@@ -95,7 +95,5 @@ void Queue::size() {
 }
 
 bool Queue::empty() {
-	if (last == nullptr)
-		return true;
-	return false;
+	return last == nullptr;
 }
