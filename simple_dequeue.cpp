@@ -28,10 +28,12 @@ struct Dequeue {
 
 	Dequeue ()
 		: last  ( nullptr )
-		, first ( nullptr ) {}
+		, first ( nullptr )
+		, _size  (0) {}
 private:
 	Node* last;
 	Node* first;
+	size_t _size;
 };
 
 
@@ -73,6 +75,7 @@ void Dequeue::push_back ( int data ) {
 		last = new Node ( data, nullptr, nullptr );
 		first = last;
 	}
+	_size++;
 	cout << "ok" << endl;
 }
 
@@ -85,6 +88,7 @@ void Dequeue::push_front ( int data ) {
 		last = new Node ( data, nullptr, nullptr );
 		first = last;
 	}
+	_size++;
 	cout << "ok" << endl;
 }
 
@@ -102,6 +106,7 @@ void Dequeue::pop_back () {
 			first = nullptr;
 			last = nullptr;
 		}
+		_size--;
 	} else 
 		cout << "error" << endl;
 }
@@ -120,6 +125,7 @@ void Dequeue::pop_front () {
 			first = nullptr;
 			last = nullptr;
 		}
+		_size--;
 	} else
 		cout << "error" << endl;
 }
@@ -139,13 +145,7 @@ void Dequeue::back () {
 }
 
 void Dequeue::size () {
-	int counter ( 0 );
-	Node* now = last;
-	while (now != nullptr) {
-		counter++;
-		now = now->prev_node;
-	}
-	cout << counter << endl;
+	cout << _size << endl;
 }
 
 void Dequeue::clear () {

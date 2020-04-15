@@ -22,10 +22,12 @@ struct Queue {
 
 	Queue()
 		: first	(nullptr)
-		, last	(nullptr) {}
+		, last	(nullptr)
+		, _size (0) {}
 private:
 	Node* first;
 	Node* last;
+	size_t _size;
 };
 
 int main() {
@@ -54,6 +56,7 @@ void Queue::push(int data) {
 		first = new Node(data, nullptr);
 		last = first;
 	}
+	_size++;
 	cout << "ok" << endl;
 }
 
@@ -64,6 +67,7 @@ void Queue::pop() {
 		Node* tmp = last;
 		last = last->next_node;
 		delete tmp;
+		_size--;
 	}
 	else cout << "error" << endl;
 }
@@ -87,13 +91,7 @@ void Queue::clear() {
 }
 
 void Queue::size() {
-	int counter(0);
-	Node* next = last;
-	while (next != nullptr) {
-		counter++;
-		next = next->next_node;
-	}
-	cout << counter << endl;
+	cout << _size << endl;
 }
 
 bool Queue::empty() {

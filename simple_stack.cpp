@@ -21,9 +21,11 @@ struct Stack {
 	bool empty ();
 
 	Stack ()
-		: last ( nullptr ) {}
+		: last ( nullptr )
+		, _size (0) {}
 private:
 	Node* last;
+	size_t _size;
 };
 
 
@@ -56,6 +58,7 @@ void Stack::push ( int n ) {
 	} else {
 		last = new Node ( n, nullptr );
 	}
+	_size++;
 	cout << "ok" << endl;
 }
 
@@ -66,6 +69,7 @@ void Stack::pop () {
 		Node* tmp = last;
 		last = last->prev_node;
 		delete tmp;
+		_size--;
 	} else
         cout << "error" << endl;
 }
@@ -78,13 +82,7 @@ void Stack::back () {
 }
 
 void Stack::size () {
-	int counter (0);
-	Node* now = last;
-	while (now != nullptr) {
-		counter++;
-		now = now->prev_node;
-	}
-	cout << counter << endl;
+	cout << _size << endl;
 }
 
 void Stack::clear () {
