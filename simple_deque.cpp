@@ -14,22 +14,22 @@ struct Node {
 		, next_node ( _next_node ) {}
 };
 
-struct Dequeue {
+struct Deque {
 	void push_front ( int data );
-	void push_back  ( int data );
-	void pop_front  ();
-	void pop_back   ();
+	void push_back ( int data );
+	void pop_front ();
+	void pop_back ();
 
 	void front ();
-	void back  ();
-	void size  ();
+	void back ();
+	void size ();
 	void clear ();
 	bool empty ();
 
-	Dequeue ()
-		: last  ( nullptr )
+	Deque ()
+		: last ( nullptr )
 		, first ( nullptr )
-		, _size  (0) {}
+		, _size ( 0 ) {}
 private:
 	Node* last;
 	Node* first;
@@ -40,7 +40,7 @@ private:
 int main () {
 	string command;
 	int arg;
-	Dequeue deq;
+	Deque deq;
 	while (command != "exit") {
 		cin >> command;
 		if (command == "push_front") {
@@ -52,20 +52,20 @@ int main () {
 		}
 
 		else if (command == "pop_front") deq.pop_front ();
-		else if (command == "pop_back")  deq.pop_back  ();
+		else if (command == "pop_back")  deq.pop_back ();
 		else if (command == "front") deq.front ();
-		else if (command == "back")	 deq.back  ();
-		else if (command == "size")  deq.size  ();
+		else if (command == "back")	 deq.back ();
+		else if (command == "size")  deq.size ();
 		else if (command == "clear") deq.clear ();
 	}
 	cout << "bye";
 }
 
-bool Dequeue::empty () {
+bool Deque::empty () {
 	return (last == nullptr && first == nullptr);
 }
 
-void Dequeue::push_back ( int data ) {
+void Deque::push_back ( int data ) {
 	if (!empty ()) {
 		Node* old = last;
 		last = new Node ( data, last, nullptr );
@@ -78,7 +78,7 @@ void Dequeue::push_back ( int data ) {
 	cout << "ok" << endl;
 }
 
-void Dequeue::push_front ( int data ) {
+void Deque::push_front ( int data ) {
 	if (!empty ()) {
 		Node* old = first;
 		first = new Node ( data, nullptr, first );
@@ -91,7 +91,7 @@ void Dequeue::push_front ( int data ) {
 	cout << "ok" << endl;
 }
 
-void Dequeue::pop_back () {
+void Deque::pop_back () {
 	if (!empty ()) {
 		cout << last->data << endl;
 
@@ -106,11 +106,11 @@ void Dequeue::pop_back () {
 			last = nullptr;
 		}
 		_size--;
-	} else 
+	} else
 		cout << "error" << endl;
 }
 
-void Dequeue::pop_front () {
+void Deque::pop_front () {
 	if (!empty ()) {
 		cout << first->data << endl;
 
@@ -129,25 +129,25 @@ void Dequeue::pop_front () {
 		cout << "error" << endl;
 }
 
-void Dequeue::front () {
+void Deque::front () {
 	if (!empty ())
 		cout << first->data << endl;
 	else
 		cout << "error" << endl;
 }
 
-void Dequeue::back () {
+void Deque::back () {
 	if (!empty ())
 		cout << last->data << endl;
 	else
 		cout << "error" << endl;
 }
 
-void Dequeue::size () {
+void Deque::size () {
 	cout << _size << endl;
 }
 
-void Dequeue::clear () {
+void Deque::clear () {
 	Node* del;
 	while (last != nullptr) {
 		del = last;
@@ -156,6 +156,7 @@ void Dequeue::clear () {
 	}
 
 	first = nullptr;
+	_size = 0;
 
 	cout << "ok" << endl;
 }
