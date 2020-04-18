@@ -87,7 +87,7 @@ void Queue::clear() {
 		delete del;
 	}
 	first = last;
-	size = 0;
+	_size = 0;
 	cout << "ok" << endl;
 }
 

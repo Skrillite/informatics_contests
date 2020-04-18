@@ -92,6 +92,6 @@ void Stack::clear () {
 		delete del;
 	}
 
-	size = 0;
+	_size = 0;
 	cout << "ok" << endl;
 }
