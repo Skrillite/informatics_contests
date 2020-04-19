@@ -88,9 +88,8 @@ pair<bool, int> BTree::balanceChecker ( Node* node ) {
 		left.second++;
 		auto right = balanceChecker ( node->right_node );
 		right.second++;
-		auto ret = make_pair ( (left.first && right.first && abs ( left.second - right.second ) < 2)
+		return make_pair ( (left.first && right.first && abs ( left.second - right.second ) < 2)
 			, max ( left.second, right.second ) );
-		return ret;
 	}
 }
 
