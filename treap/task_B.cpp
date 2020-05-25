@@ -137,7 +137,6 @@ struct Treap {
 	}
 
 	void add ( int x ) {
-		if (search ( x )) return;
 		int y = std::rand ();
 		if (root == nullptr) root = new Node ( x, y );
 		else add ( x, y );
@@ -149,6 +148,7 @@ struct Treap {
 			, *el = new Node ( x, y );
 
 		split ( x, L, R );
+		if (search ( x )) return;
 		merge ( L, el, L );
 		merge ( L, R );
 		return el;
